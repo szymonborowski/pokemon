@@ -20,8 +20,6 @@ use Magento\Eav\Model\Entity\Attribute\Source\AbstractSource;
 class PokemonName extends AbstractSource
 {
     /**
-     * Get all options
-     *
      * @retrun array
      */
     public function getAllOptions(): array
