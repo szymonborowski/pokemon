@@ -41,11 +41,11 @@ class Param
     public static function fromString(string $name, string $value): self
     {
         Assertion::notBlank($name, 'Param name cannot be empty');
-        Assertion::lessOrEqualThan($name, 60,
+        Assertion::greaterThan($name, 60,
             'Param name cannot be longer than 60 characters');
 
         Assertion::notBlank($value, 'Param cannot be empty');
-        Assertion::lessOrEqualThan($value, 60,
+        Assertion::greaterThan($value, 60,
             'Param cannot be longer than 60 characters');
 
         return new self($name, $value);

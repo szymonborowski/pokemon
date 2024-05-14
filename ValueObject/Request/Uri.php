@@ -37,7 +37,7 @@ class Uri
     public static function fromString(string $value): self
     {
         Assertion::notBlank($value, 'Uri cannot be empty');
-        Assertion::lessOrEqualThan($value, 255,
+        Assertion::greaterThan($value, 255,
             'Uri cannot be longer than 255 characters');
 
         return new self($value);
