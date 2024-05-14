@@ -2,7 +2,7 @@
   "name": "szymonborowski/pokemon",
   "description": "Magento 2 module for improving checkout process",
   "type": "magento2-module",
-  "version": "1.0.0",
+  "version": "0.0.2",
   "license": [
     "GPL-3.0-or-later"
   ],
