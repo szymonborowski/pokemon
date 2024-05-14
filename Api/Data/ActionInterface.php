@@ -28,9 +28,9 @@ interface ActionInterface
     public function getMethod(): Method;
 
     /**
-     * @return string
+     * @return Uri
      */
-    public function getUri(): string;
+    public function getUri(): Uri;
 
     /**
      * @return array
@@ -57,11 +57,4 @@ interface ActionInterface
      * @return void
      */
     public function addParam(Param $params): void;
-
-    /**
-     * @param  string  $name
-     *
-     * @return void
-     */
-    public function removeParam(string $name): void;
 }

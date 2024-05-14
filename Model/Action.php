@@ -49,9 +49,9 @@ class Action implements ActionInterface
     /**
      * @inheirtDoc
      */
-    public function getUri(): string
+    public function getUri(): Uri
     {
-        return $this->uri->getValue();
+        return $this->uri;
     }
 
     /**
@@ -84,13 +84,5 @@ class Action implements ActionInterface
     public function addParam(Param $param): void
     {
         $this->params[$param->getName()] = $param->getValue();
-    }
-
-    /**
-     * @inheirtDoc
-     */
-    public function removeParam(string $name): void
-    {
-        unset($this->params[$name]);
     }
 }
