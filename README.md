@@ -1,5 +1,5 @@
 # Pokemon API integration with Magento 2 
-### v 0.0.2
+### v 0.0.3
 
 
 
@@ -11,7 +11,7 @@ This module provide an integration with PokeAPI and allows to link pokemon data 
 
 Module can be installed via composer:
 
-``` composer require szybo/pokemon ```
+``` composer require szymonborowski/pokemon ```
 
 ## Progress:
 ### 1. PokeAPI integration:
