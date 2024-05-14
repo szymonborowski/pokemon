@@ -44,12 +44,14 @@ class PokemonApiConnector
         {
             case 200:
                 break;
+            case 400:
+                throw new LocalizedException(__('Bad request for uri %1', $uri->getValue()));
             case 404:
                 throw new LocalizedException(__('Resource with params %1 not found', $this->getListOfParamsForErrorMsg($action->getParams())));
             case 500:
                 throw new LocalizedException(__('Pokemon server is unavailable. Fetching data is impossible at the moment.'));
             default:
-                throw new LocalizedException(__('Something went wrong'));
+                throw new LocalizedException(__('Unexpected error occurred. Please try again later.'));
         }
 
         return $this->json->unserialize($this->curl->getBody());
@@ -62,7 +64,7 @@ class PokemonApiConnector
      */
     private function getApiUrl(Uri $uri): string
     {
-        return $this->systemConfigProvider->getUrl() . DS . (string)$uri;
+        return $this->systemConfigProvider->getUrl() . DIRECTORY_SEPARATOR . (string)$uri;
     }
 
     /**
