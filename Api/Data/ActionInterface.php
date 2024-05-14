@@ -52,9 +52,9 @@ interface ActionInterface
     public function setUri(Uri $uri): void;
 
     /**
-     * @param  Param  $params
+     * @param  Param  $param
      *
      * @return void
      */
-    public function addParam(Param $params): void;
+    public function addParam(Param $param): void;
 }

@@ -83,6 +83,6 @@ class Action implements ActionInterface
      */
     public function addParam(Param $param): void
     {
-        $this->params[$param->getName()] = $param->getValue();
+        $this->params[$param->getName()] = $param;
     }
 }
