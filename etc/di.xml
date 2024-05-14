@@ -9,4 +9,6 @@
         xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
     <preference for="Szybo\Pokemon\Api\Config\SystemConfigProviderInterface"
                 type="Szybo\Pokemon\Model\Config\SystemConfigProvider"/>
+    <preference for="Szybo\Pokemon\Api\Data\ActionInterface"
+                type="Szybo\Pokemon\Model\Action"/>
 </config>
