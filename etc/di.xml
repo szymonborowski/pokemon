@@ -11,4 +11,8 @@
                 type="Szybo\Pokemon\Model\Config\SystemConfigProvider"/>
     <preference for="Szybo\Pokemon\Api\Data\ActionInterface"
                 type="Szybo\Pokemon\Model\Action"/>
+    <preference for="Szybo\Pokemon\Api\Data\PokemonInterface"
+                type="Szybo\Pokemon\Model\Pokemon"/>
+    <preference for="Szybo\Pokemon\Api\PokemonRepositoryInterface"
+                type="Szybo\Pokemon\Service\PokemonRepository"/>
 </config>
