@@ -29,7 +29,7 @@ class ParamBinder
         $uri = $uri->getValue();
 
         foreach ($params as $param) {
-            str_replace($this->strToReplace($param), $param->getValue(), $uri);
+            $uri = str_replace($this->strToReplace($param), $param->getValue(), $uri);
         }
 
         return Uri::fromString($uri);
