@@ -16,7 +16,6 @@ use Magento\Eav\Setup\EavSetupFactory;
 use Magento\Framework\Setup\InstallDataInterface;
 use Magento\Framework\Setup\ModuleContextInterface;
 use Magento\Framework\Setup\ModuleDataSetupInterface;
-use Szybo\Pokemon\Model\Attribute\Backend\PokemonName as Backend;
 use Szybo\Pokemon\Model\Attribute\Frontend\PokemonName as Frontend;
 use Szybo\Pokemon\Model\Attribute\Source\PokemonName as Source;
 
@@ -52,7 +51,7 @@ class InstallData implements InstallDataInterface
             'pokemon_name',
             [
                 'type'                    => 'varchar',
-                'backend'                 => Backend::class,
+                'backend'                 => '',
                 'frontend'                => Frontend::class,
                 'label'                   => 'Pokemon Name',
                 'input'                   => 'select',
@@ -63,10 +62,10 @@ class InstallData implements InstallDataInterface
                 'required'                => false,
                 'user_defined'            => false,
                 'default'                 => '',
-                'searchable'              => false,
+                'searchable'              => true,
                 'filterable'              => false,
                 'comparable'              => false,
-                'visible_on_front'        => false,
+                'visible_on_front'        => true,
                 'used_in_product_listing' => true,
                 'unique'                  => false,
             ]
