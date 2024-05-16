@@ -12,6 +12,14 @@ declare(strict_types=1);
 namespace Szybo\Pokemon\Model;
 
 use Szybo\Pokemon\Api\Data\PokemonInterface;
+use Szybo\Pokemon\Api\Request\ParamCollectionInterface;
+use Szybo\Pokemon\Model\Pokemon\Collection\AbilityCollection;
+use Szybo\Pokemon\ValueObject\Pokemon\BaseExperience;
+use Szybo\Pokemon\ValueObject\Pokemon\Height;
+use Szybo\Pokemon\ValueObject\Pokemon\Id;
+use Szybo\Pokemon\ValueObject\Pokemon\ImageUrl;
+use Szybo\Pokemon\ValueObject\Pokemon\Name;
+use Szybo\Pokemon\ValueObject\Pokemon\Weight;
 
 /**
  * Class Pokemon
@@ -20,14 +28,18 @@ use Szybo\Pokemon\Api\Data\PokemonInterface;
  */
 class Pokemon implements PokemonInterface
 {
-    private int $id;
-    private string $name;
-    private string $imageUrl;
+    private Id $id;
+    private Name $name;
+    private ImageUrl $imageUrl;
+    private Weight $weight;
+    private Height $height;
+    private BaseExperience $baseExperience;
+    private ParamCollectionInterface $abilities;
 
     /**
      * @inheritDoc
      */
-    public function getId(): int
+    public function getId(): Id
     {
         return $this->id;
     }
@@ -35,7 +47,7 @@ class Pokemon implements PokemonInterface
     /**
      * @inheritDoc
      */
-    public function getName(): string
+    public function getName(): Name
     {
         return $this->name;
     }
@@ -43,7 +55,7 @@ class Pokemon implements PokemonInterface
     /**
      * @inheritDoc
      */
-    public function getImageUrl(): string
+    public function getImageUrl(): ImageUrl
     {
         return $this->imageUrl;
     }
@@ -51,7 +63,31 @@ class Pokemon implements PokemonInterface
     /**
      * @inheritDoc
      */
-    public function setId(int $id): void
+    public function getWeight(): Weight
+    {
+        return  $this->weight;
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function getHeight(): Height
+    {
+        return  $this->height;
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function getBaseExperience(): BaseExperience
+    {
+        return $this->baseExperience;
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function setId(Id $id): void
     {
         $this->id = $id;
     }
@@ -59,7 +95,7 @@ class Pokemon implements PokemonInterface
     /**
      * @inheritDoc
      */
-    public function setName(string $name): void
+    public function setName(Name $name): void
     {
         $this->name = $name;
     }
@@ -67,8 +103,48 @@ class Pokemon implements PokemonInterface
     /**
      * @inheritDoc
      */
-    public function setImageUrl(string $imageUrl): void
+    public function setImageUrl(ImageUrl $imageUrl): void
     {
         $this->imageUrl = $imageUrl;
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function setWeight(Weight $weight): void
+    {
+        $this->weight = $weight;
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function setHeight(Height $height): void
+    {
+        $this->height = $height;
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function setBaseExperience(BaseExperience $baseExperience): void
+    {
+        $this->baseExperience = $baseExperience;
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function getAbilities(): ParamCollectionInterface
+    {
+        return $this->abilities;
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function setAbilities(ParamCollectionInterface $abilities): void
+    {
+        $this->abilities = $abilities;
     }
 }

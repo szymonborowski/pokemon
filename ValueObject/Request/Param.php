@@ -19,15 +19,15 @@ use Assert\AssertionFailedException;
  *
  * @package Szybo\Pokemon\Attribute\Request
  */
-class Param
+readonly class Param
 {
     /**
      * @param  string  $name
      * @param  string  $value
      */
     private function __construct(
-        private readonly string $name,
-        private readonly string $value
+        private string $name,
+        private string $value
     ) {
     }
 
@@ -41,12 +41,10 @@ class Param
     public static function fromString(string $name, string $value): self
     {
         Assertion::notBlank($name, 'Param name cannot be empty');
-        Assertion::greaterThan($name, 60,
+        Assertion::maxLength($name, 60,
             'Param name cannot be longer than 60 characters');
 
         Assertion::notBlank($value, 'Param cannot be empty');
-        Assertion::greaterThan($value, 60,
-            'Param cannot be longer than 60 characters');
 
         return new self($name, $value);
     }

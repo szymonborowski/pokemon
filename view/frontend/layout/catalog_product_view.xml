@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+/**
+ * file: catalog_product_view.xml
+ *
+ * @author    Szymon Borowski <szymon.borowski@gmail.com>
+ * @copyright Copyright (c) 2024, Szymon Borowski
+ */
+-->
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="product.info.details">
+            <block class="Szybo\Pokemon\Block\PokemonDetailsTab" name="pokemon.details.tab" group="detailed_info" template="Szybo_Pokemon::pokemon-details-tab.phtml">
+                <arguments>
+                    <argument name="title" translate="true" xsi:type="string">Pokemon details</argument>
+                    <argument name="sort_order" xsi:type="string">50</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

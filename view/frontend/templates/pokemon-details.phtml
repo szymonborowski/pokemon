@@ -1,0 +1,68 @@
+<?php
+
+/**
+ * file: pokemon-details.phtml
+ *
+ * @author    Szymon Borowski <szymon.borowski@gmail.com>
+ * @copyright Copyright (c) 2024, Szymon Borowski
+ */
+
+use Szybo\Pokemon\Block\PokemonDetails;
+
+/** @var PokemonDetails $block */
+
+$pokemonViewModel = $block->getPokemonViewModel();
+$pokemonData = $pokemonViewModel->getPokemon();
+$pokemonAbilities = $pokemonViewModel->getAbilities();
+
+?>
+<?php if ($pokemonData): ?>
+<div>
+    <div class="pokemon-img">
+        <img src="<?= $block->escapeUrl($pokemonData->getImageUrl()) ?>" alt="<?= $block->escapeHtml($pokemonData->getName()) ?>"/>
+    </div>
+    <div class="section-title"><?= /* @noEscape */ __('General')?>:</div>
+    <div>
+        <ul>
+            <li>Name: <?= $block->escapeHtml($pokemonData->getName()) ?></li>
+            <li>Height: <?= $block->escapeHtml($pokemonData->getWeight()) ?></li>
+            <li>Weight: <?= $block->escapeHtml($pokemonData->getHeight()) ?></li>
+        </ul>
+    </div>
+    <?php if ($pokemonAbilities->count()): ?>
+        <div class="section-title"><?= /* @noEscape */ __('Abilities')?>:</div>
+        <div>
+            <ul>
+                <?php foreach ($pokemonAbilities as $ability): ?>
+                    <li><span class="link" title="<?= $block->escapeHtml($ability->getDescription()) ?>">
+                            <?= $block->escapeHtml($ability->getFrontendName()) ?></span>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
+    <?php endif; ?>
+
+</div>
+<?php endif; ?>
+
+<style>
+    .section-title {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .pokemon-img {
+        margin-bottom: 10px;
+    }
+
+    .pokemon-img img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .link {
+        cursor: pointer;
+        color: #17496f;
+    }
+</style>

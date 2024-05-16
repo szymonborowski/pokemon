@@ -10,9 +10,34 @@
     <preference for="Szybo\Pokemon\Api\Config\SystemConfigProviderInterface"
                 type="Szybo\Pokemon\Model\Config\SystemConfigProvider"/>
     <preference for="Szybo\Pokemon\Api\Data\ActionInterface"
-                type="Szybo\Pokemon\Model\Action"/>
+                type="Szybo\Pokemon\Model\Request\Action"/>
     <preference for="Szybo\Pokemon\Api\Data\PokemonInterface"
                 type="Szybo\Pokemon\Model\Pokemon"/>
     <preference for="Szybo\Pokemon\Api\PokemonRepositoryInterface"
                 type="Szybo\Pokemon\Service\PokemonRepository"/>
+    <preference for="Szybo\Pokemon\Api\Data\Pokemon\AbilityInterface"
+                type="Szybo\Pokemon\Model\Pokemon\Ability"/>
+    <preference for="Szybo\Pokemon\Api\Pokemon\AbilityCollectionInterface"
+                type="Szybo\Pokemon\Model\Pokemon\Collection\AbilityCollection"/>
+    <preference for="Szybo\Pokemon\Api\Data\PokemonDataModifierInterface"
+                type="Szybo\Pokemon\Model\Pokemon\Ability"/>
+    <preference for="Szybo\Pokemon\Api\PokemonApiUrlConverterInterface"
+                    type="Szybo\Pokemon\Service\PokemonApiUrlConverter"/>
+    <preference for="Szybo\Pokemon\Api\PokemonApiResourceProviderInterface"
+               type="Szybo\Pokemon\Service\PokemonApiResourceProvider"/>
+    <preference for="Szybo\Pokemon\Api\Request\ParamCollectionInterface"
+                type="Szybo\Pokemon\Model\Request\Collection\ParamCollection"/>
+
+    <type name="Magento\Catalog\Api\Data\ProductInterface">
+        <plugin name="szybo_add_pokemon_data_to_product" type="Szybo\Pokemon\Plugin\ProductPlugin" sortOrder="10"/>
+    </type>
+
+    <type name="Szybo\Pokemon\Service\PokemonMapper">
+        <arguments>
+            <!-- Add custom modifier to the list of modifiers. Must be an instance of Szybo\Pokemon\Api\Data\PokemonDataModifierInterface -->
+            <argument name="modifiers" xsi:type="array">
+                <item name="nameUpperCase" xsi:type="object">Szybo\Pokemon\Model\Modifier\Pokemon\NameUperCase</item>
+            </argument>
+        </arguments>
+    </type>
 </config>

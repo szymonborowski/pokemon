@@ -19,12 +19,12 @@ use Assert\AssertionFailedException;
  *
  * @package Szybo\Pokemon\Attribute\Request
  */
-class Uri
+readonly class Uri
 {
     /**
      * @param  string  $value
      */
-    private function __construct(private readonly string $value)
+    private function __construct(private string $value)
     {
     }
 
@@ -37,7 +37,7 @@ class Uri
     public static function fromString(string $value): self
     {
         Assertion::notBlank($value, 'Uri cannot be empty');
-        Assertion::greaterThan($value, 255,
+        Assertion::maxLength($value, 255,
             'Uri cannot be longer than 255 characters');
 
         return new self($value);

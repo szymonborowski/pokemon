@@ -9,10 +9,9 @@ declare(strict_types=1);
  * @copyright Copyright (c) 2024, Szymon Borowski
  */
 
-namespace Szybo\Pokemon\Model;
+namespace Szybo\Pokemon\Model\Request;
 
 use Szybo\Pokemon\Api\Data\ActionInterface;
-use Szybo\Pokemon\ValueObject\Request\Method;
 use Szybo\Pokemon\ValueObject\Request\Param;
 use Szybo\Pokemon\ValueObject\Request\Uri;
 
@@ -24,11 +23,6 @@ use Szybo\Pokemon\ValueObject\Request\Uri;
 class Action implements ActionInterface
 {
     /**
-     * @var Method
-     */
-    private Method $method;
-
-    /**
      * @var Uri
      */
     private Uri $uri;
@@ -37,14 +31,6 @@ class Action implements ActionInterface
      * @var Param[]
      */
     private array $params;
-
-    /**
-     * @inheirtDoc
-     */
-    public function getMethod(): Method
-    {
-        return $this->method;
-    }
 
     /**
      * @inheirtDoc
@@ -60,14 +46,6 @@ class Action implements ActionInterface
     public function getParams(): array
     {
         return $this->params;
-    }
-
-    /**
-     * @inheirtDoc
-     */
-    public function setMethod(Method $method): void
-    {
-        $this->method = $method;
     }
 
     /**

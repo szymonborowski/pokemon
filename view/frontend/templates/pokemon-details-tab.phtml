@@ -1,0 +1,37 @@
+<?php
+
+/**
+ * file: pokemon-details-tab.phtml
+ *
+ * @author    Szymon Borowski <szymon.borowski@gmail.com>
+ * @copyright Copyright (c) 2024, Szymon Borowski
+ */
+
+use Szybo\Pokemon\Block\PokemonDetailsTab;
+
+/** @var PokemonDetailsTab $block */
+
+?>
+
+<?php if ($block->isPokemonApiEnabled() && $block->getPokemonName()) : ?>
+
+    <div data-bind="scope: 'pokemonDetails'">
+        <!-- ko template: getTemplate() --><!-- /ko -->
+    </div>
+
+    <script type="text/x-magento-init">
+        {
+            "*": {
+                "Magento_Ui/js/core/app": {
+                    "components": {
+                        "pokemonDetails": {
+                            "component": "Szybo_Pokemon/js/pokemon-data",
+                            "pokemonName": "<?= $block->getPokemonName() ?>"
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+<?php endif;

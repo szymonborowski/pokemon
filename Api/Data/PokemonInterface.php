@@ -11,6 +11,16 @@ declare(strict_types=1);
 
 namespace Szybo\Pokemon\Api\Data;
 
+use Szybo\Pokemon\Api\Request\ParamCollectionInterface;
+use Szybo\Pokemon\Model\Pokemon\Collection\AbilityCollection;
+use Szybo\Pokemon\ValueObject\Pokemon\BaseExperience;
+use Szybo\Pokemon\ValueObject\Pokemon\Height;
+use Szybo\Pokemon\ValueObject\Pokemon\Id;
+use Szybo\Pokemon\ValueObject\Pokemon\Name;
+use Szybo\Pokemon\ValueObject\Pokemon\ImageUrl;
+use Szybo\Pokemon\ValueObject\Pokemon\Resource;
+use Szybo\Pokemon\ValueObject\Pokemon\Weight;
+
 /**
  * Interface PokemonInterface
  *
@@ -19,38 +29,86 @@ namespace Szybo\Pokemon\Api\Data;
 interface PokemonInterface
 {
     /**
-     * @return int
+     * @return Id
      */
-    public function getId(): int;
+    public function getId(): Id;
 
     /**
-     * @return string
+     * @return Name
      */
-    public function getName(): string;
+    public function getName(): Name;
 
     /**
-     * @return string
+     * @return Weight
      */
-    public function getImageUrl(): string;
+    public function getWeight(): Weight;
 
     /**
-     * @param  int  $id
+     * @return Height
+     */
+    public function getHeight(): Height;
+
+    /**
+     * @return ImageUrl
+     */
+    public function getImageUrl(): ImageUrl;
+
+    /**
+     * @return BaseExperience
+     */
+    public function getBaseExperience(): BaseExperience;
+
+    /**
+     * @return ParamCollectionInterface
+     */
+    public function getAbilities(): ParamCollectionInterface;
+
+    /**
+     * @param  Id  $id
      *
      * @return void
      */
-    public function setId(int $id): void;
+    public function setId(Id $id): void;
 
     /**
-     * @param  string  $name
+     * @param  Name  $name
      *
      * @return void
      */
-    public function setName(string $name): void;
+    public function setName(Name $name): void;
 
     /**
-     * @param  string  $imageUrl
+     * @param  Weight  $weight
      *
      * @return void
      */
-    public function setImageUrl(string $imageUrl): void;
+    public function setWeight(Weight $weight): void;
+
+    /**
+     * @param  Height  $height
+     *
+     * @return void
+     */
+    public function setHeight(Height $height): void;
+
+    /**
+     * @param  ImageUrl  $imageUrl
+     *
+     * @return void
+     */
+    public function setImageUrl(ImageUrl $imageUrl): void;
+
+    /**
+     * @param  BaseExperience  $baseExperience
+     *
+     * @return void
+     */
+    public function setBaseExperience(BaseExperience $baseExperience): void;
+
+    /**
+     * @param  ParamCollectionInterface  $abilities
+     *
+     * @return void
+     */
+    public function setAbilities(ParamCollectionInterface $abilities): void;
 }

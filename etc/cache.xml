@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Szymon Borowski <szymon.borowski@gmail.com>
+ * @copyright Copyright (c) 2024, Szymon Borowski
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Cache/etc/cache.xsd">
+    <type name="poke_api_request_cache" translate="label,description" instance="Szybo\Pokemon\Model\Cache\Pokemon\ApiCache">
+        <label>Poke API Request Cache</label>
+        <description>Manage cached API request</description>
+    </type>
+</config>

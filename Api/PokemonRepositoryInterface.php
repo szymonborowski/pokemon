@@ -23,7 +23,14 @@ interface PokemonRepositoryInterface
     /**
      * @param  string  $name
      *
-     * @return PokemonInterface
+     * @return PokemonInterface|null
      */
-    public function getByName(string $name): PokemonInterface;
+    public function getByName(string $name): ?PokemonInterface;
+
+    /**
+     * @param  int  $id
+     *
+     * @return PokemonInterface|null
+     */
+    public function getById(int $id): ?PokemonInterface;
 }

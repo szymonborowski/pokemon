@@ -13,24 +13,28 @@ namespace Szybo\Pokemon\Setup;
 use Magento\Catalog\Model\Product;
 use Magento\Eav\Model\Entity\Attribute\ScopedAttributeInterface;
 use Magento\Eav\Setup\EavSetupFactory;
+use Magento\Framework\Exception\LocalizedException;
 use Magento\Framework\Setup\InstallDataInterface;
 use Magento\Framework\Setup\ModuleContextInterface;
 use Magento\Framework\Setup\ModuleDataSetupInterface;
-use Szybo\Pokemon\Model\Attribute\Frontend\PokemonName as Frontend;
-use Szybo\Pokemon\Model\Attribute\Source\PokemonName as Source;
+use Magento\Framework\Validator\ValidateException;
+use Szybo\Pokemon\Model\Product\Attribute\Source\PokemonName as Source;
 
 /**
  * Class InstallData
  *
  * @package Szybo\Pokemon\Setup
  */
-class InstallData implements InstallDataInterface
+readonly class InstallData implements InstallDataInterface
 {
+    const ATTRIBUTE_CODE = 'pokemon_name';
+    const ATTRIBUTE_LABEL = 'Pokemon Name';
+
     /**
      * @param  EavSetupFactory  $eavSetupFactory
      */
     public function __construct(
-        private readonly EavSetupFactory $eavSetupFactory
+        private EavSetupFactory $eavSetupFactory
     ) {
     }
 
@@ -39,6 +43,8 @@ class InstallData implements InstallDataInterface
      * @param  ModuleContextInterface  $context
      *
      * @return void
+     * @throws LocalizedException
+     * @throws ValidateException
      */
     public function install(
         ModuleDataSetupInterface $setup,
@@ -48,12 +54,12 @@ class InstallData implements InstallDataInterface
 
         $eavSetup->addAttribute(
             Product::ENTITY,
-            'pokemon_name',
+            self::ATTRIBUTE_CODE,
             [
                 'type'                    => 'varchar',
                 'backend'                 => '',
-                'frontend'                => Frontend::class,
-                'label'                   => 'Pokemon Name',
+                'frontend'                => '',
+                'label'                   => self::ATTRIBUTE_LABEL,
                 'input'                   => 'select',
                 'class'                   => '',
                 'source'                  => Source::class,
@@ -65,7 +71,7 @@ class InstallData implements InstallDataInterface
                 'searchable'              => true,
                 'filterable'              => false,
                 'comparable'              => false,
-                'visible_on_front'        => true,
+                'visible_on_front'        => false,
                 'used_in_product_listing' => true,
                 'unique'                  => false,
             ]

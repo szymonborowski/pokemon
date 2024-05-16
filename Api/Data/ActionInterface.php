@@ -11,7 +11,6 @@ declare(strict_types=1);
 
 namespace Szybo\Pokemon\Api\Data;
 
-use Szybo\Pokemon\ValueObject\Request\Method;
 use Szybo\Pokemon\ValueObject\Request\Param;
 use Szybo\Pokemon\ValueObject\Request\Uri;
 
@@ -23,11 +22,6 @@ use Szybo\Pokemon\ValueObject\Request\Uri;
 interface ActionInterface
 {
     /**
-     * @return Method
-     */
-    public function getMethod(): Method;
-
-    /**
      * @return Uri
      */
     public function getUri(): Uri;
@@ -37,12 +31,6 @@ interface ActionInterface
      */
     public function getParams(): array;
 
-    /**
-     * @param  Method  $method
-     *
-     * @return void
-     */
-    public function setMethod(Method $method): void;
 
     /**
      * @param  Uri  $uri
