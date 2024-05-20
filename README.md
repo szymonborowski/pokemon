@@ -37,6 +37,8 @@ Data of Pokemon are available on product page.
 Data are fetched from PokeAPI and stored in Magento cache.
 Data are loaded dynamically after page load.
 
+![img_3.png](img_3.png)
+
 Product title is replaced with plugin. It should be done by via Ajax, using frontend component.
 
 Unfortunately replacing data on listing page is not done yet.
